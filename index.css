@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    transition: all 0.4s;
+}
+body.active {
+    overflow-y: hidden;
+    
+}
+body.darkmode {
+    background:  black;
+    color: white;
+}
+.opa {
+    background-color: rgba(45, 44, 44,0.5);
+    z-index: -100;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    display: none;
+}
+.opa.active{
+   display: block;
+}
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 80px 1fr fit-content;
+    padding: 3em 4em;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    overflow-x: hidden;
+}
+
+.list-item {
+    display: flex;
+    gap: 22px;
+    list-style-type: none;
+    font-weight: bold;
+    color: hsl(30, 1%, 36%);
+}
+.list-item li {
+    transition: all 0.4s;
+}
+.list-item li:hover ,.logo {
+    cursor: pointer;
+    color:  hsl(5, 85%, 63%);
+}
+@media screen and (max-width:980px) {
+    .container{
+        padding: 2em 1em;
+    }
+    .list-item {
+        flex-direction: column;
+        position: absolute;
+        background-color: beige;
+        top: 0;
+        width:0px;
+        overflow: hidden;
+        align-items:flex-start;
+        justify-content: center;
+        height: 100vh;
+        right: 0;
+        transition: all .4s;
+        color: black;
+        
+    }
+    .list-item li {
+        padding-left: 25px;
+    }
+    .list-item.active {
+        width: 75vw;
+    }
+}
+.main-section {
+    display: flex;
+    gap: 5px;
+    height: fit-content;
+    margin-bottom: 2em;
+}
+.main1 {
+    display: flex;
+    flex-direction: column;
+}
+p{
+    color: hsl(30, 1%, 36%);
+    font-size: 90%;
+    margin-top: 10px;
+}
+.background {
+    height: 300px;
+    background: url(images/image-web-3-desktop.jpg) ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 10px;
+}
+.btn {
+    background-color:  hsl(5, 85%, 63%);
+    margin-top: 10px;
+    padding: 10px 13px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 0;
+    cursor: pointer;
+    transition: all .4s;
+}
+.btn:hover {
+ background-color:hsl(240, 100%, 5%)
+}
+.sh {
+    display: flex;
+    
+}
+.sh1 h1 {
+    font-size: 3em;
+    padding: 10px;
+    font-weight: bold;
+}
+.sh2 {
+    padding: 2em;
+}
+.main2 {
+    background-color: hsl(240, 100%, 5%);
+    color: white;
+    padding: 20px;
+}
+.bord {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    
+}
+@media screen and (max-width:980px){
+    .background{
+        height: 300px;
+        background: url(images/image-web-3-mobile.jpg) ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+    .main-section{
+        flex-direction: column;
+    }
+    .sh{
+        flex-direction: column;
+    }
+    .sh2{
+        padding: 1em;
+    }
+    .bord{
+        gap: 20px;
+    }
+}
+.main-section2 {
+    display: flex;
+    gap: 10px;
+
+}
+.head {
+    font-size: 2.5em;
+    color: hsl(35, 77%, 62%);
+}
+.title {
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+.title:hover {
+    color: hsl(35, 77%, 62%);
+}
+.box {
+    display: flex;
+    gap: 10px;
+    flex: 1 1 auto;
+    margin-top: 2em;
+}
+.img {
+    width: 6em;
+}
+.img img {
+    object-fit: contain;
+    width: 6em;
+}
+.num {
+    font-size: 2em;
+    letter-spacing: 0.5px;
+    color: hsl(30, 1%, 36%);
+    margin-bottom: 10px;
+}
+.las {
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: bold;
+}
+.las:hover{
+    color: hsl(5, 85%, 63%);
+}
+.menu {
+    display:none ;
+    
+    cursor: pointer;
+}
+/*styling for menu or toggle bar*/
+.bar.darkmode {
+    background: white;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: black;
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width:980px){
+    .main-section2{
+        flex-direction: column;
+    }
+    .menu {
+        display: block;
+        position: relative;
+        z-index: 1000;
+    }
+    .menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg)
+    }
+    .menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .menu.active {
+        background-color: rgba(68, 66, 66,0.4);
+        padding: 7px 6px;
+        border-radius: 47%;
+    }
+}
